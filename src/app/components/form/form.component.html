@@ -1,3 +1,4 @@
+<ng-container *ngIf="!isLoading && !succes">
 <form 
     class="row g-3 needs-validation"
     novalidate
@@ -7,6 +8,7 @@
     <div class="col-12">
       <label class="form-label row">Nombre</label>
       <input 
+        [ngClass]="{'is-valid' : nameControl.valid, 'is-invalid' : nameControl.invalid && nameControl.touched}"
         type="text" 
         class="form-control" 
         formControlName="nombre"
@@ -24,7 +26,7 @@
         <span class="input-group-text" id="inputGroupPrepend">@</span>
         <input
             type="text"
-            [ngClass]="userControl.valid ? 'is-valid' : ''"
+            [ngClass]="{'is-valid' : userControl.valid, 'is-invalid' : userControl.invalid && userControl.touched}"
             class="form-control row"
             formControlName="usuario"
         >
@@ -41,6 +43,7 @@
       <div class="input-group">
         <span class="input-group-text" id="inputGroupPrepend">@</span>
         <input 
+            [ngClass]="{'is-valid' : emailControl.valid, 'is-invalid' : emailControl.invalid && emailControl.touched}"
             type="text" 
             class="form-control" 
             formControlName="email"
@@ -57,3 +60,18 @@
       <button class="btn btn-primary" type="submit">Registrarme</button>
     </div>
   </form>
+
+</ng-container>
+<ng-container *ngIf="isLoading && !succes">
+  <div class="d-flex align-items-center justify-content-center" style="margin-top: 100px;">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only"></span>
+    </div>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isLoading && succes">
+  <div class="d-flex align-items-center justify-content-center text-success">
+    <i class="bi bi-check-circle-fill mr-2"></i>
+    Usuario registrado correctamente!
+  </div>
+</ng-container>

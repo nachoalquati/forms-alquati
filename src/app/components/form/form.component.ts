@@ -8,6 +8,9 @@ import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from
 })
 export class FormComponent {
 
+  public isLoading: boolean = false;
+  public succes: boolean = false;
+
   nameControl = new FormControl(
     '',
     [
@@ -48,7 +51,18 @@ export class FormComponent {
 
   onSubmit(){
     console.log(this.userControl.errors);
-    
+    if(this.emailControl.invalid || this.nameControl.invalid || this.userControl.invalid){
+      this.emailControl.markAsTouched();
+      this.nameControl.markAsTouched();
+      this.userControl.markAllAsTouched();
+      return
+    }
+    this.isLoading = true
+    setTimeout(() => {
+      this.isLoading = false
+      this.succes = true
+    }, 2000);
+
   }
 
 }
