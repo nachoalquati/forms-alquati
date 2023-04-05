@@ -11,10 +11,10 @@
         class="form-control" 
         formControlName="nombre"
         >
-      <div class="row col-12" *ngIf="nameControl.errors?.['required'] === true  && nameControl.touched">
+      <div class="row col-12 text-danger" *ngIf="nameControl.errors?.['required'] === true  && nameControl.touched">
           El nombre es obligatorio.
       </div>
-      <div class="row col-12" *ngIf="nameControl.errors?.['minlength']  && nameControl.touched">
+      <div class="row col-12 text-danger" *ngIf="nameControl.errors?.['minlength']  && nameControl.touched">
           El nombre debe tener al menos 4 caracteres.
       </div>
     </div>
@@ -28,10 +28,10 @@
             class="form-control row"
             formControlName="usuario"
         >
-        <div class=" row col-12" *ngIf="userControl.errors?.['required'] === true  && userControl.touched">
+        <div class=" row col-12 text-danger" *ngIf="userControl.errors?.['required'] === true  && userControl.touched">
           Por favor ingresa tu nombre de usuario.
         </div>
-        <div class=" row col-12" *ngIf="userControl.errors?.['minlength']  && userControl.touched">
+        <div class=" row col-12 text-danger" *ngIf="userControl.errors?.['minlength']  && userControl.touched">
           El nombre debe tener al menos 6 caracteres.
         </div>
       </div>
@@ -45,10 +45,10 @@
             class="form-control" 
             formControlName="email"
             >
-        <div class="row col-12" *ngIf="emailControl.errors?.['required'] === true  && emailControl.touched">
+        <div class="row col-12 text-danger" *ngIf="emailControl.errors?.['required'] === true  && emailControl.touched">
           Por favor ingresa un correo electronico
         </div>
-        <div class="row col-12" *ngIf="emailControl.errors?.['email'] === true  && emailControl.touched">
+        <div class="row col-12 text-danger" *ngIf="emailControl.errors?.['email'] === true  && emailControl.touched">
           Por favor ingresa un correo electronico valido.
         </div>
       </div>
